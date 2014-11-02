@@ -19,7 +19,7 @@
 
 <!-- Affichage si erreur -->
 <?php if(isset($_SESSION['msg-admin']) && $_SESSION['msg-admin'] != '') : ?>
-<p class="error"><?php echo htmlspecialchars($_SESSION['msg-admin']); ?></p>
+<div class="notify notify-red"><span class="symbol icon-error"></span> <?php echo htmlspecialchars($_SESSION['msg-admin']); ?></div>
 <?php endif;?>
 
 <!-- Affichage des messages -->
@@ -42,11 +42,11 @@
 
 <div class="tchatForm" style="position:fixed;bottom:20px;width:100%;">
     <form action="tchat_post.php" method="post">
-        <div style="margin-right:110px;">
-            <textarea name="message" id="message" style="width:100%;"></textarea>
+        <div style="margin-right:100px;">
+            <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>
         </div>
-        <div style="position:absolute;top:12px;right:0;">
-            <input type="submit" name="tchat-submit" value="Envoyer un message" />
+        <div style="position:absolute;top:5px;right:15px;">
+            <input type="submit" class="boutonstyle" name="tchat-submit" value=" Envoyer " />
         </div>
     </form> 
 </div>
