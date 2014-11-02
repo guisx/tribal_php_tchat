@@ -1,0 +1,19 @@
+<!-- L'en-tête -->
+
+<?php include("header.php"); ?>
+
+<section>
+	<h1>Bienvenue sur mon tchat</h1>
+    <form action="tchat.php" method="post">
+        <p>
+        <label for="pseudo">Indiquez votre pseudo</label> : <input type="text" name="pseudo" id="pseudo" />
+        <br /><br />
+
+        <input type="submit" name="pseudo-submit" value="Entrer dans le tchat" />
+    </p>
+    </form>	
+</section>
+
+<!-- Le pied de page -->
+
+<?php include("footer.php"); ?>  
