@@ -14,6 +14,7 @@ section {
 footer {
 
 }
+/* Formulaire */
 .boutonstyle {
 	border-radius:12px 0 12px 0;
 	background: #d34836;
@@ -21,6 +22,10 @@ footer {
 	color:#fff;
 	font:bold 12px Verdana;
 	padding:6px 0 6px 0;
+}
+textarea{
+	background:#000;
+	border:solid 1px red;
 }
 /* Notifications box */
 /*
