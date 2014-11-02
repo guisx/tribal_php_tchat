@@ -8,6 +8,7 @@
 ?>
 
 <?php 
+    session_start();
     //On redirige si le pseudo n'existe pas ou est vide 
 	if(!isset($_SESSION['pseudo']) || empty($_SESSION['pseudo'])){
 		header("location:index.php");
