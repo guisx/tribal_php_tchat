@@ -27,7 +27,14 @@
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
         while ($donnees = $reponse->fetch()){
-            echo '<p>[<i>' . $donnees['date_creation_fr'] . ' </i>] <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+            echo '<p>[<i>' . $donnees['date_creation_fr'] . ' </i>] <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> :';
+            $mess_prepa = str_replace(':)', '<img src="smileys/icon_smile.gif" />', htmlspecialchars($donnees['message']));
+            $mess_prepa = str_replace(';)', '<img src="smileys/icon_wink.gif" />', $mess_prepa);
+            $mess_prepa = str_replace('camping', '<img src="smileys/icon_camping.gif" />', $mess_prepa);
+            $mess_prepa = str_replace('cook', '<img src="smileys/icon_cook.gif" />', $mess_prepa);
+            $mess_prepa = str_replace('fish', '<img src="smileys/icon_fish.gif" />', $mess_prepa);
+            $mess_final = str_replace('rip', '<img src="smileys/icon_rip.gif" />', $mess_prepa);
+            echo ' ' . $mess_final . '</p>';
         }
         $reponse->closeCursor();
     ?>
@@ -71,8 +78,12 @@
             }
             </script>
 
-            <a href="#" onclick="addText(' :) ');return(false)"><img src="icon_smile.gif" ></a> 
-            <a href="#" onclick="addText(' ;) ');return(false)"><img src="icon_wink.gif" ></a>
+            <a href="#" onclick="addText(' :) ');return(false)"><img src="smileys/icon_smile.gif" ></a> 
+            <a href="#" onclick="addText(' ;) ');return(false)"><img src="smileys/icon_wink.gif" ></a>
+            <a href="#" onclick="addText(' camping ');return(false)"><img src="smileys/icon_camping.gif" ></a> 
+            <a href="#" onclick="addText(' cook ');return(false)"><img src="smileys/icon_cook.gif" ></a>            
+            <a href="#" onclick="addText(' fish ');return(false)"><img src="smileys/icon_fish.gif" ></a> 
+            <a href="#" onclick="addText(' rip ');return(false)"><img src="smileys/icon_rip.gif" ></a>   
 
             <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>
         </div>
