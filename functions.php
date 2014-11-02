@@ -5,5 +5,4 @@ try {
 } catch(PDOException $e) {
     die('Cannot connect to database: ' . $e->getMessage());
 }
-
-}
+?>
