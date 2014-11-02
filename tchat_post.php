@@ -9,9 +9,10 @@
 		// Insertion du message à l'aide d'une requête préparée
 		$req = $bdd->prepare('INSERT INTO tchat (pseudo, message, date_message) VALUES(?, ?, NOW())');
 		$req->execute(array(htmlspecialchars($_SESSION['pseudo']), htmlspecialchars($_POST['message'])));
+		$_SESSION['msg-admin'] = '';
 		header("Location: tchat.php");// Redirection du visiteur vers la page tchat
 	} else {
-	    $_SESSION['msg-admin'] = 'Veuillez remplir tous les champs ci-dessous.';
+	    $_SESSION['msg-admin'] = 'Veuillez indiquer un message SVP';
 	    header('Location: tchat.php');
 	}	
 ?>
