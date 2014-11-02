@@ -6,16 +6,22 @@
     require_once 'config.php';
     require_once 'functions.php';
 ?>
+
 <?php 
-    session_start();
     //On redirige si le pseudo n'existe pas ou est vide 
 	if(!isset($_SESSION['pseudo']) || empty($_SESSION['pseudo'])){
 		header("location:index.php");
 	}
 ?>
+
 <h1>Bienvenue sur Tribal tchat : <i><?php echo $_SESSION['pseudo']; ?></i></h1>
 
-<!-- Affichages des messages -->
+<!-- Affichage si erreur -->
+<?php if(isset($_SESSION['msg-admin']) && $_SESSION['msg-admin'] != '') : ?>
+<p class="error"><?php echo htmlspecialchars($_SESSION['msg-admin']); ?></p>
+<?php endif;?>
+
+<!-- Affichage des messages -->
 
 <section>
     <?php
