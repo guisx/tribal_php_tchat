@@ -17,25 +17,26 @@
 
 <h1>Bienvenue sur le tchat : <i><?php echo $_SESSION['pseudo']; ?></i></h1>
 
-<!-- Affichage si erreur -->
-<?php if(isset($_SESSION['msg-admin']) && $_SESSION['msg-admin'] != '') : ?>
-<div class="notify notify-red"><span class="symbol icon-error"></span> <?php echo htmlspecialchars($_SESSION['msg-admin']); ?></div>
-<?php endif;?>
 
 <!-- Affichage des messages -->
 
 <section>
     <?php
-        // Récupération des 20 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message ASC LIMIT 20');
+        // Récupération des 30 derniers messages
+        $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message ASC LIMIT 30');
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
         while ($donnees = $reponse->fetch()){
             echo '<p>[<i>' . $donnees['date_creation_fr'] . ' </i>] <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
         }
         $reponse->closeCursor();
-
     ?>
+
+<!-- Affichage si erreur -->
+
+<?php if(isset($_SESSION['msg-admin']) && $_SESSION['msg-admin'] != '') : ?>
+<div class="notify notify-red"> <?php echo htmlspecialchars($_SESSION['msg-admin']); ?></div>
+<?php endif;?>
 
 <!-- Boite pour l'envoi du message -->
 
