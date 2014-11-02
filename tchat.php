@@ -14,14 +14,17 @@
 	}
 ?>
 <h1>Bienvenue sur Tribal tchat : <i><?php echo $_SESSION['pseudo']; ?></i></h1>
+
+<!-- Affichages des messages -->
+
 <section>
     <?php
         // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, message, DAY(date_message) AS jour, MONTH(date_message) AS mois, YEAR(date_message) AS annee, HOUR(date_message) AS heure, MINUTE(date_message) AS minute, SECOND(date_message) AS seconde FROM minichat ORDER BY date_message DESC LIMIT 10');
+        $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message DESC LIMIT 20');
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
         while ($donnees = $reponse->fetch()){
-            echo '<p>[' . $donnees['jour'] . '/' . $donnees['mois'] . '/' . $donnees['annee'] . ' ' . $donnees['heure'] . 'h' . $donnees['minute'] . 'm' . $donnees['seconde'] . 's] <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+            echo '<p>[<i>' . $donnees['date_creation_fr'] . ' </i>] <strong>' . htmlspecialchars($donnees['pseudo']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
         }
         $reponse->closeCursor();
 
