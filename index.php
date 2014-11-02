@@ -2,9 +2,17 @@
 
 <?php include("header.php"); ?>
 
+<?php 
+	if(!empty($_POST) && isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
+		session_start();
+		$_SESSIOn['pseudo'] = htmlspecialchars($_POST['pseudo']);
+		header("tchat.php");
+	}
+?>
+
 <section>
 	<h1>Bienvenue sur mon tchat</h1>
-    <form action="tchat.php" method="post">
+    <form action="index.php" method="post">
         <p>
         <label for="pseudo">Indiquez votre pseudo</label> : <input type="text" name="pseudo" id="pseudo" />
         <br /><br />
