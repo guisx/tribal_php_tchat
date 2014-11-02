@@ -41,7 +41,7 @@
 
 <div class="tchatForm" style="top:20px;width:100%;">
     <form action="tchat_post.php" method="post">
-        <div style="margin-right:5px;">
+        <div style="margin-right:8px;">
             <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>
         </div>
         <div style="top:5px;right:15px;text-align:center;">

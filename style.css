@@ -15,7 +15,7 @@ footer {
 
 }
 /* Formulaire */
-textarea{
+input,textarea{
 	display: inline-block;
 	background: #94ae62;
 	border:1px solid #728c40;
