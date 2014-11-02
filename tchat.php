@@ -15,7 +15,7 @@
 	}
 ?>
 
-<h1>Bienvenue sur Tribal tchat : <i><?php echo $_SESSION['pseudo']; ?></i></h1>
+<h1>Bienvenue sur le tchat : <i><?php echo $_SESSION['pseudo']; ?></i></h1>
 
 <!-- Affichage si erreur -->
 <?php if(isset($_SESSION['msg-admin']) && $_SESSION['msg-admin'] != '') : ?>
@@ -24,10 +24,10 @@
 
 <!-- Affichage des messages -->
 
-<section style="position:">
+<section>
     <?php
-        // Récupération des 10 derniers messages
-        $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message DESC LIMIT 20');
+        // Récupération des 20 derniers messages
+        $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message ASC LIMIT 20');
 
         // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
         while ($donnees = $reponse->fetch()){
@@ -39,7 +39,7 @@
 
 <!-- Boite pour l'envoi du message -->
 
-<div class="tchatForm" style="bottom:20px;width:100%;">
+<div class="tchatForm" style="top:20px;width:100%;">
     <form action="tchat_post.php" method="post">
         <div style="margin-right:5px;">
             <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>

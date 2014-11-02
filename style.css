@@ -5,8 +5,8 @@ h1 {
 	text-align: center;
 }
 section {
-	border:3px solid black;
-    box-shadow: 6px 6px 6px black;
+	border:3px solid #94ae62;
+    box-shadow: 6px 6px 6px #94ae62;
     padding:5px;
     width: 900px;
     margin: auto;	
@@ -16,24 +16,35 @@ footer {
 }
 /* Formulaire */
 textarea{
-	border-radius:12px;
-	background: #a43628;
-	border:none;
+	display: inline-block;
+	background: #94ae62;
+	border:1px solid #728c40;
 	color:#fff;
 	font:bold 12px Verdana;
 	padding:6px 0 6px 6px;
 	width:100%;
 }
 .boutonstyle {
-	border-radius:12px 0 12px 0;
-	background: #d34836;
-	border:none;
+	display: inline-block;
+	background: #94ae62;
+	border:1px solid #728c40;
 	color:#fff;
 	font:bold 12px Verdana;
-	padding:6px 0 6px 0;
+	padding:6px 0 6px 6px;
 	width:100%;
 }
-
+input, textarea {
+    color: #333;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color: #555;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #555;
+}
+input.placeholder, textarea.placeholder {
+    color: #555;
+}
 /* Notifications box */
 /*
 <div class="notify"><span class="symbol icon-info"></span> A kind of a notice box !</div>
