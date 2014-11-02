@@ -41,8 +41,39 @@
 <!-- Boite pour l'envoi du message -->
 
 <div class="tchatForm" style="top:20px;width:100%;">
-    <form action="tchat_post.php" method="post">
+    <form action="tchat_post.php" method="post" name="tchat">
         <div style="margin-right:8px;">
+            <!-- Ajout de smileys -->
+            <script type="text/javascript">
+            function addText(instext) {
+                var mess = document.tchat.message;
+                //IE support
+                if (document.selection)   {
+                        mess.focus();
+                        sel = document.selection.createRange();
+                        sel.text = instext;
+                        document.guestbook.focus();
+                }
+
+                //MOZILLA/NETSCAPE support
+                else if (mess.selectionStart || mess.selectionStart == "0")   {
+                       var startPos = mess.selectionStart;
+                       var endPos = mess.selectionEnd;
+                       var chaine = mess.value;
+                       mess.value = chaine.substring(0, startPos) + instext + chaine.substring(endPos, chaine.length);
+                       //mess.selectionStart = startPos + instext.length;
+                       //mess.selectionEnd = endPos + instext.length;
+                       mess.focus();
+                 } else {
+                       mess.value += instext;
+                       mess.focus();
+                }
+            }
+            </script>
+
+            <a href="#" onclick="addText(' :) ');return(false)"><img src="icon_smile.gif" ></a> 
+            <a href="#" onclick="addText(' ;) ');return(false)"><img src="icon_wink.gif" ></a>
+
             <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>
         </div>
         <div style="top:5px;right:15px;text-align:center;">
