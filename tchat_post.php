@@ -1,4 +1,5 @@
 <?php
+	session_start();
     //on recupere les fichiers pour se connecte a la BDD
     require_once 'config.php';
     require_once 'functions.php';
