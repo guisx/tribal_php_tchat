@@ -24,7 +24,7 @@
 
 <!-- Affichage des messages -->
 
-<section>
+<section style="position:">
     <?php
         // Récupération des 10 derniers messages
         $reponse = $bdd->query('SELECT pseudo, message, DATE_FORMAT(date_message, \'%d/%m/%Y à %Hh%imin%ss\') AS date_creation_fr FROM tchat ORDER BY date_message DESC LIMIT 20');
@@ -36,20 +36,23 @@
         $reponse->closeCursor();
 
     ?>
-</section>
 
 <!-- Boite pour l'envoi du message -->
 
-<div class="tchatForm" style="position:fixed;bottom:20px;width:100%;">
+<div class="tchatForm" style="bottom:20px;width:100%;">
     <form action="tchat_post.php" method="post">
-        <div style="margin-right:100px;">
+        <div style="margin-right:5px;">
             <textarea name="message" id="message" placeholder="Votre message ici" style="width:100%;"></textarea>
         </div>
-        <div style="position:absolute;top:5px;right:15px;">
-            <input type="submit" class="boutonstyle" name="tchat-submit" value=" Envoyer " />
+        <div style="top:5px;right:15px;text-align:center;">
+            <input type="submit" class="boutonstyle" name="tchat-submit" value=" Envoyer votre message " />
         </div>
     </form> 
 </div>
+
+</section>
+
+
 
 <!-- Le pied de page -->
 

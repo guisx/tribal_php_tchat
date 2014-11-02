@@ -15,6 +15,15 @@ footer {
 
 }
 /* Formulaire */
+textarea{
+	border-radius:12px;
+	background: #a43628;
+	border:none;
+	color:#fff;
+	font:bold 12px Verdana;
+	padding:6px 0 6px 6px;
+	width:100%;
+}
 .boutonstyle {
 	border-radius:12px 0 12px 0;
 	background: #d34836;
@@ -22,11 +31,9 @@ footer {
 	color:#fff;
 	font:bold 12px Verdana;
 	padding:6px 0 6px 0;
+	width:100%;
 }
-textarea{
-	background:#000;
-	border:solid 1px red;
-}
+
 /* Notifications box */
 /*
 <div class="notify"><span class="symbol icon-info"></span> A kind of a notice box !</div>
