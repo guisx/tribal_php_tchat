@@ -5,7 +5,7 @@
 <?php 
 	if(!empty($_POST) && isset($_POST['pseudo']) && !empty($_POST['pseudo'])){
 		session_start();
-		$_SESSIOn['pseudo'] = htmlspecialchars($_POST['pseudo']);
+		$_SESSION['pseudo'] = htmlspecialchars($_POST['pseudo']);
 		header("tchat.php");
 	}
 ?>
